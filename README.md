@@ -25,28 +25,45 @@
 См. [`requirements.txt`](requirements.txt)
 
 ## 🚀 Установка и запуск
-```bash
+
 ### 1. Клонирование репозитория
+```bash
 git clone https://github.com/mikkixx/lis-project.git
 cd lis-project
 
-### 2. Создание виртуального окружения
+2. Создание виртуального окружения
+bash
 python3 -m venv venv
 source venv/bin/activate  # Linux/macOS
 # venv\Scripts\activate   # Window
 
-### 3. Установка зависимостей
+3. Установка зависимостей
+bash
 pip install --upgrade pip
 pip install -r requirements.txt
 
-### 4. Настройка базы данных
-a) Создайте пустую БД в MySQL
-Через терминал или phpMyAdmin выполните:
-CREATE DATABASE lis_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+4. Настройка MySQL
+bash
+sudo apt update
+sudo apt install mysql-server mysql-client -y
+sudo systemctl start mysql
+sudo systemctl enable mysql
 
-b) Настройте подключение
+# Создание базы данных и пользователя
+sudo mysql -u root -p
+
+# В MySQL CLI:
+CREATE DATABASE myapp_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'myapp_user'@'localhost' IDENTIFIED BY 'secure_password';
+GRANT ALL PRIVILEGES ON myapp_db.* TO 'myapp_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
+5. Настройте подключение
+bash
 cp .env.example .env
 nano .env
+
 Пример содержимого .env:
 DB_HOST=localhost
 DB_PORT=3306
@@ -54,8 +71,10 @@ DB_NAME=lis_db
 DB_USER=root
 DB_PASSWORD=
 
-c) Создайте таблицы
+6. Создайте таблицы
+bash
 python database/init_db.py
 
-### 5. Запуск приложения
+7. Запуск приложения
+bash
 python main.py
