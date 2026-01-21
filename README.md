@@ -26,24 +26,21 @@
 
 ## 🚀 Установка и запуск
 
-### 1. Клонирование репозитория
 ```bash
+1. Клонирование репозитория
 git clone https://github.com/mikkixx/lis-project.git
 cd lis-project
 
 2. Создание виртуального окружения
-bash
 python3 -m venv venv
 source venv/bin/activate  # Linux/macOS
 # venv\Scripts\activate   # Window
 
 3. Установка зависимостей
-bash
 pip install --upgrade pip
 pip install -r requirements.txt
 
-4. Настройка MySQL
-bash
+4. Настройте MySQL
 sudo apt update
 sudo apt install mysql-server mysql-client -y
 sudo systemctl start mysql
@@ -60,7 +57,6 @@ FLUSH PRIVILEGES;
 EXIT;
 
 5. Настройте подключение
-bash
 cp .env.example .env
 nano .env
 
@@ -72,9 +68,7 @@ DB_USER=root
 DB_PASSWORD=
 
 6. Создайте таблицы
-bash
 python database/init_db.py
 
 7. Запуск приложения
-bash
 python main.py
