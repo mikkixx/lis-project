@@ -24,7 +24,8 @@ MANIFEST
 venv/
 env/
 ENV/
-mikki/
+mikki/     
+.env
 
 # IDE
 .vscode/
@@ -41,10 +42,7 @@ database/backups/
 *.log
 logs/
 
-# Environment variables
-.env
-.env.local
-.env.production
-
 # Secrets
 config/secrets.py
+.env.local
+.env.production
