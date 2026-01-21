@@ -25,25 +25,21 @@
 См. [`requirements.txt`](requirements.txt)
 
 ## 🚀 Установка и запуск
-
-### 1. Клонирование репозитория
 ```bash
+### 1. Клонирование репозитория
 git clone https://github.com/mikkixx/lis-project.git
-cd lis-project```
+cd lis-project
 
 ### 2. Создание виртуального окружения
-```bash
 python3 -m venv venv
 source venv/bin/activate  # Linux/macOS
-# venv\Scripts\activate   # Window```
+# venv\Scripts\activate   # Window
 
 ### 3. Установка зависимостей
-```bash
 pip install --upgrade pip
-pip install -r requirements.txt```
+pip install -r requirements.txt
 
 ### 4. Настройка базы данных
-```bash
 a) Создайте пустую БД в MySQL
 Через терминал или phpMyAdmin выполните:
 CREATE DATABASE lis_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -59,8 +55,7 @@ DB_USER=root
 DB_PASSWORD=
 
 c) Создайте таблицы
-python database/init_db.py```
+python database/init_db.py
 
 ### 5. Запуск приложения
-```bash
-python main.py```
+python main.py
